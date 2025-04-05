@@ -26,8 +26,7 @@ const Home = () => {
   };
 
   
-  return token ? (
-    <div className="container-fluid">
+  return <div className="container-fluid">
       <NavBar />
         <br />
        <div className="row">
@@ -56,9 +55,9 @@ const Home = () => {
        </div>
     </div>
 
-  ) : (
-    <Navigate to="/" />
-  );
+  // ) : (
+  //   <Navigate to="/" />
+  // );
 };
 
 export default Home;
