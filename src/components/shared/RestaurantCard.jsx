@@ -43,7 +43,6 @@ const RestaurantCard = ({ image, name, price, addons, isSelected, onSelect, onSh
   };
 
   const handleAddToBillingClick = () => {
-    console.log("Added to Billing:", { name, price, discount, selectedAddons });
     setShowModal(false);
   };
 
