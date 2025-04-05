@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+}
+
+.poppins-regular {
+font-family: "Poppins", serif;
+font-weight: 400;
+font-style: normal;
+}
+body {
+  background-color: #f6f6f6;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+.sidebar {
+  
+  /* background-color: #f6f6f6; */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  padding-top: 1rem;
+}
+.category-btn {
+  border: none;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.category-btn.active {
+  background-color: #ff5c5c;
+  color: #fff;
+}
+.card img {
+  border-radius: 10px;
+}
+.billing-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.col-md-1 {
+  min-width: 120px;
+  min-height: fit-content;
+}
+
+.menu {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 2rem;
+
+  max-width: 1000px;
+  min-width: 1000px;
+  /* background: rgb(250, 250, 250); */
+  min-height: fit-content;
+}
+
+
+.inventory-class {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 2rem;
+
+  max-width: 1000px;
+  min-width: 1000px;
+  /* background: rgb(250, 250, 250); */
+  min-height: fit-content;
+}

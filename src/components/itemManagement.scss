@@ -1,0 +1,13 @@
+.card-menu {
+    
+    display: grid;
+    // flex-direction: ;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive columns */
+    gap: 16px; /* Spacing between cards */
+    padding: 16px;
+    justify-content: start; /* Center grid content */
+    align-items: stretch; /* Ensure equal height */
+    // height: 70vh; /* Remove fixed height */
+    overflow: scroll; /* Prevent unnecessary scrolling */
+    
+  }

@@ -1,0 +1,59 @@
+.side-nav {
+    .sidebar-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      width: 60px;
+      margin: 1rem auto;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+  
+      &:hover {
+        background-color: #ffc3c3;
+      }
+  
+      .tooltip {
+        position: absolute;
+        left: 60px;
+        align-items: center;
+        background: #333;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out;
+      }
+  
+      &:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+        animation: fadeOut 1s ease-in-out 1s forwards;  // Tooltip disappears after 1s
+      }
+
+      &.active {
+        // background-color: #e0e0e0;
+        border-color: #ff5c5c;
+      }
+    }
+  }
+  
+  // Keyframe animation to fade out
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+
+  

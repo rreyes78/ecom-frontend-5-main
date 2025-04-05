@@ -1,0 +1,124 @@
+/* Ensure modal overlay covers the whole screen */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .restaurant-card img {
+    width: 100%;
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Prevent distortion */
+  }
+  
+  /* Modal Box */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Adjust width for responsiveness */
+    max-width: 400px; /* Max size for better layout */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Add-ons container */
+  .addons-container {
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .addon-category {
+    margin-bottom: 10px;
+  }
+  
+  .addon-option {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  /* Buttons inside modal */
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Button Styling */
+  .modal-actions .btn {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #a71d2a;
+  }
+  
+  /* Fade-in animation for modal */
+   
+
+  /* Image in Modal */
+.modal-img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* Set max height to ensure the image doesn't overflow */
+    object-fit: cover; /* Maintain aspect ratio without distortion */
+    margin-bottom: 20px;
+  }
+  
+
+  /* Add-ons container */
+.addons-container {
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .addon-category {
+    margin-bottom: 10px;
+  }
+  
+  .addon-option {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .addon-option input {
+    margin-right: 10px;
+  }
+  
+  .discount-input {
+    width: 100px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  
