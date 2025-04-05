@@ -5,6 +5,7 @@ import {
   FaHamburger,
   FaAppleAlt,
   FaLeaf,
+  FaFire,
 } from "react-icons/fa";
 import { Navigate } from "react-router-dom"; // ✅ Added missing import
 import "./menu.scss";
@@ -88,7 +89,7 @@ function Menu() {
               {cat === "Dessert" && <FaAppleAlt size={24} />}
               {cat === "Salad" && <FaLeaf size={24} />}
               {cat === "Soup" && <FaAppleAlt size={24} />}
-              {cat === "Popular" && <FaHamburger size={24} />}
+              {cat === "Popular" && <FaFire size={24} />}
               {cat}
             </button>
           ))}

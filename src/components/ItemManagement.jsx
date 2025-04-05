@@ -16,6 +16,17 @@ const ItemManagement = () => {
 
   const [selectedItem, setSelectedItem] = useState([]);
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddProductClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = (e) => {
+    e.stopPropagation();
+    setShowModal(false);
+  };
+
 
   const handleSelectAll = () => {
     if (selectedItems.length === restaurantData.length) {
@@ -47,17 +58,18 @@ const ItemManagement = () => {
           <h1 className="text-2xl font-bold">Item Management</h1>
         </div>
       </div>
-
-      <ProductModal 
-          type={"add"}
-       />
+      {showModal && (
+        <ProductModal showModal={showModal} type="add" onClose={() => setShowModal(false)} />
+      )}
+        
 
       <div className="d-block" style={{ maxWidth: "300px", minWidth: "300px", float: "right" }}>
         <button
           className="m-1 d-flex justify-content-center align-items-center btn btn-success w-full flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-3xl"
           style={{ width: "100%", background: "#66c172" }}
+          onClick={handleAddProductClick}
         >
-          <Plus size={18} /> Add Item
+          <Plus size={18} /> Add Menus
         </button>
         <button
           onClick={refreshData}
