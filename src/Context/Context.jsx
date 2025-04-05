@@ -10,6 +10,8 @@ const AppContext = createContext({
   activeIcon:"",
   handleSetActiveIcon:()=>{
   },
+  cart:[],
+  handleCartActions:()=>{}
 });
 
 

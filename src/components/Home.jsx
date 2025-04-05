@@ -26,8 +26,8 @@ const Home = () => {
   };
 
   
-  return token ? (
-    <div className="container-fluid">
+  return  token? (
+  <div className="container-fluid">
       <NavBar />
         <br />
        <div className="row">

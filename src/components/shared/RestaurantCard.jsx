@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./card.css";
 import { useAppContext } from "../../Context/Context";
+import { useCartContext } from "../../Context/cartContext";
 
-const RestaurantCard = ({ image, name, price, addons, isSelected, onSelect, onShowAddBillingModal}) => {
+const RestaurantCard = ({ item, image, name, price, addons, isSelected, onSelect, onShowAddBillingModal}) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState({});
   const [discount, setDiscount] = useState(0); // Discount state
   const { activeIcon } = useAppContext()
+  const {cart, handleCartActions}=useCartContext();
 
   const handleCardClick = () => {
     setShowModal(true);
@@ -43,6 +45,8 @@ const RestaurantCard = ({ image, name, price, addons, isSelected, onSelect, onSh
   };
 
   const handleAddToBillingClick = () => {
+    console.log("Added to Billing:", { name, price, discount, selectedAddons });
+    handleCartActions("addToCart",item, 1, discount)
     setShowModal(false);
   };
 

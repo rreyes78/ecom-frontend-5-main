@@ -1,88 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './billing.css'
+import { useCartContext } from '../Context/cartContext';
 
 const Billing = () => {
+  const {cart, handleCartActions}=useCartContext();
+  const [subtotal, setSubtotal]=useState(0)
+  const [total_discount, setTotalDiscount]=useState(0)
+  const [total, setTotal]=useState(0)
+  
+  const handlePlusBtn=(cartItem, count)=>{
+    handleCartActions("updateCartItem", cartItem, count+1)
+   
+
+  }
+  const handleMinusBtn=(cartItem, count)=>{
+    handleCartActions("updateCartItem", cartItem, count-1)
+  }
+
+  useEffect(()=>{
+   
+    // reduce cart (price*count + ... = subtotal)
+    setSubtotal(cart.reduce((acc, item)=>acc+item.cartItem.price*item.count,0).toFixed(2))
+
+    //reduct cart (discount+...=total_discount)
+    setTotalDiscount(cart.reduce((acc, item)=>acc+item.discount,0).toFixed(2))
+    //grandtotal=subtotal-total_discount
+    setTotal(subtotal-total_discount)
+  },[cart, subtotal])
+
   return (
     <div className="poppins-regular" style={{ boxSizing: "border-box" }}>
       <div className="billing-card" style={{ boxSizing: "border-box" }}>
         <h6>Bills</h6>
 
-        {/* Billing items added here */}
-        <div
+        {/* Billing items added here */
+
+        cart?.map(({cartItem, count}, Index)=>(
+
+          <div
           className="d-flex justify-content-between align-items-center w-100"
           style={{ boxSizing: "border-box", overflow: "hidden", marginBottom: ".5rem" }}
+          key={Index}
         >
           <img
-            src="https://modernmealmakeover.com/wp-content/uploads/2020/10/IMG_6548-4.jpg"
+            src={cartItem.image}
             style={{ width: "40px", height: "40px", borderRadius: "9px", backgroundColor: "red" }}
             alt="Milk Tea"
           />
           <div className="w-100 justify-content-between align-items-center gap-2" style={{ marginLeft: "1rem", overflow: "hidden", padding: "0", fontSize: "12px" }}>
-            <div className="text-nowrap" style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "60%" }}>Milk Tea</div>
-            <small className="text-muted">Vanilla, Mild</small>
+            <div className="text-nowrap" style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "60%" }}>{cartItem.name}</div>
+            <small className="text-muted">{cartItem.category}</small>
           </div>
           <div>
-            <div className="text-nowrap d-flex justify-content-end font-weight-bold">$7.09</div>
+            <div className="text-nowrap d-flex justify-content-end font-weight-bold">${cartItem.price}</div>
             <div className="text-nowrap d-flex justify-content-end">
               <div className="d-flex gap-2">
                 {/* Minus Button */}
-                <div className="w-auto h-auto d-flex align-items-center justify-content-center bg-light rounded-lg p-2">
+                <div className="w-auto h-auto d-flex align-items-center justify-content-center bg-light rounded-lg p-2" onClick={()=>{handleMinusBtn(cartItem, count)}}>
                   <i style={{ fontSize: "7px" }} className="fas fa-minus text-muted"></i>
                 </div>
 
                 {/* Quantity */}
-                <span className="d-flex align-items-center" style={{ fontSize: "12px" }}>2</span>
+                <span className="d-flex align-items-center" style={{ fontSize: "12px" }}>{count}</span>
 
                 {/* Plus Button */}
-                <div className="w-auto h-auto d-flex align-items-center justify-content-center bg-danger rounded-lg p-2">
+                <div className="w-auto h-auto d-flex align-items-center justify-content-center bg-danger rounded-lg p-2" onClick={()=>{handlePlusBtn(cartItem, count)}}>
                   <i style={{ fontSize: "7px" }} className="fa-solid fa-plus text-white"></i>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Second Billing Item */}
-        <div className="d-flex justify-content-between align-items-center w-100" style={{ boxSizing: "border-box", overflow: "hidden", marginBottom: ".5rem" }}>
-          <img
-            src="https://modernmealmakeover.com/wp-content/uploads/2020/10/IMG_6548-4.jpg"
-            style={{ width: "40px", height: "40px", borderRadius: "9px", backgroundColor: "red" }}
-            alt="Waffle"
-          />
-          <div className="w-100 justify-content-between align-items-center gap-2" style={{ marginLeft: "1rem", overflow: "hidden", padding: "0", fontSize: "12px" }}>
-            <div className="text-nowrap" style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "60%" }}>Waffle</div>
-            <small className="text-muted">Vanilla, Ice Cream</small>
-          </div>
-          <div>
-            <div className="text-nowrap d-flex justify-content-end font-weight-bold">$5.00</div>
-            <div className="text-nowrap d-flex justify-content-end">
-              <div className="d-flex gap-2">
-                {/* Minus Button */}
-                <div className="w-auto h-auto d-flex align-items-center justify-content-center bg-light rounded-lg p-2">
-                  <i style={{ fontSize: "7px" }} className="fas fa-minus text-muted"></i>
-                </div>
-
-                {/* Quantity */}
-                <span className="d-flex align-items-center" style={{ fontSize: "12px" }}>1</span>
-
-                {/* Plus Button */}
-                <div className="w-auto h-auto d-flex align-items-center justify-content-center bg-danger rounded-lg p-2">
-                  <i style={{ fontSize: "7px" }} className="fa-solid fa-plus text-white"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div>)
+          
+        )}
+        
 
         {/* Billing Info */}
         <hr />
         <div className="d-flex justify-content-between">
           <p>Subtotal</p>
-          <p className="text-muted">$27.18</p>
+          <p className="text-muted">${subtotal}</p>
         </div>
         <div className="d-flex justify-content-between">
           <p>Discount</p>
-          <p className="text-muted">-$5.00</p>
+          <p className="text-muted">-${total_discount}</p>
         </div>
         <div className="d-flex justify-content-between">
           <p>Tax</p>
@@ -91,7 +92,7 @@ const Billing = () => {
         <hr />
         <div className="d-flex justify-content-between fw-bold">
           <p>Total</p>
-          <p>$20.51</p>
+          <p>${total}</p>
         </div>
 
         {/* Payment Method */}

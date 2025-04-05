@@ -13,6 +13,8 @@ import RestaurantCard from "../components/shared/RestaurantCard";
 import axios from "axios";
 import { useAuth } from "../Context/AuthContext";
 
+
+
 function Menu() {
   const [category, setCategory] = useState("Popular");
   const { token } = useAuth();
@@ -22,6 +24,9 @@ function Menu() {
 
   const [activeIcon, setActiveIcon] = useState(localStorage.getItem("ACTIVEROUTE") || "home");
   
+
+
+
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -34,6 +39,10 @@ function Menu() {
         setRestaurantData(response.data);
         // localStorage.setItem("DATA",JSON.stringify(restaurantData));
         setIsSending(false);
+
+        
+
+
       } catch (error) {
         setIsSending(false);
         // window.localStorage.removeItem("DATA")
@@ -102,6 +111,7 @@ function Menu() {
             filteredItems.map((item, index) => (
               <RestaurantCard
                 key={index}
+                item={item}
                 image={item.image}
                 name={item.name}
                 price={item.price}
