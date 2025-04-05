@@ -51,9 +51,9 @@ function Menu() {
     if (token) fetchItems();
   }, [token]);
 
-  // if (!token) {
-  //   return <Navigate to="/" />;
-  // }
+  if (!token) {
+    return <Navigate to="/" />;
+  }
 
   const handleClickManageItemMenu = (manageInventory) => {
     setIsManageInventory(manageInventory)
