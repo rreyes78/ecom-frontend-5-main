@@ -36,9 +36,9 @@ const ItemManagement = () => {
   const isAllSelected = selectedItems.length === restaurantData.length;
 
 
-  // if (!token) {
-  //   return <Navigate to="/" />;
-  // }
+  if (!token) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="p-6 space-y-6">
