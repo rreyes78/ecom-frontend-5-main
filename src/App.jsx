@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthProvider } from "./Context/AuthContext";
 import { AppProvider } from "./Context/Context"
+import { CartProvider } from "./Context/cartContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import Login from "./components/Login";
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <AuthProvider>
       <AppProvider>
+      <CartProvider>
       <Router>
           <Routes>
             {/* Prevent logged-in users from seeing the login page */}
@@ -29,6 +31,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
           </Routes>
         </Router>
+        </CartProvider>
       </AppProvider>
     </AuthProvider>
   );
