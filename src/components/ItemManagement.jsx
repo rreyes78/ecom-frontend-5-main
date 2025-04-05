@@ -48,9 +48,9 @@ const ItemManagement = () => {
         </div>
       </div>
 
-      {/* <ProductModal 
+      <ProductModal 
           type={"add"}
-       /> */}
+       />
 
       <div className="d-block" style={{ maxWidth: "300px", minWidth: "300px", float: "right" }}>
         <button
