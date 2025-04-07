@@ -5,7 +5,7 @@ import { addToCart,removeToCart,updateCartItem } from "../util/cartActionsUtil";
 //Context items to provide
 const CartContext=createContext({
     cart:[],
-    handleCartActions:()=>{}
+    handleCartActions:()=>{},
 })
 //Using the Context
 export const useCartContext = () => useContext(CartContext);
@@ -13,7 +13,7 @@ export const useCartContext = () => useContext(CartContext);
 //Provider function
 export const CartProvider = ({ children }) => {
     const [cart, setCart]=useState([])
-
+    
     //Add, Delete, Update
     //For getting all the cartItems just use the cart state
     const handleCartActions = (action, cartItem, count=1, item_discount=0)=>{

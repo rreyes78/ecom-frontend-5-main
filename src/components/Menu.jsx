@@ -47,6 +47,7 @@ function Menu() {
         setIsSending(false);
         // window.localStorage.removeItem("DATA")
         setError("Failed to fetch items");
+        setRestaurantData([])
       }
     };
     if (token) fetchItems();
@@ -110,6 +111,7 @@ function Menu() {
           {filteredItems.length > 0 ? (
             filteredItems.map((item, index) => (
               <RestaurantCard
+                item_id={item.id}
                 key={index}
                 item={item}
                 image={item.image}

@@ -11,7 +11,9 @@ const AppContext = createContext({
   handleSetActiveIcon:()=>{
   },
   cart:[],
-  handleCartActions:()=>{}
+  handleCartActions:()=>{},
+  imgUrl:[{}],
+  setImgUrl:() =>[{}],
 });
 
 
@@ -22,8 +24,10 @@ export const AppProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [isError, setIsError] = useState("");
   const [activeIcon, setActiveIcon]= useState(localStorage.getItem("active_tab") || "home")
-
-
+  const [imgUrl, setImgUrl]=useState([{
+    id:"",
+    imageurl:""
+  }])
 
 
   const refreshData = async () => {
@@ -38,6 +42,7 @@ export const AppProvider = ({ children }) => {
       setIsError("");
     } catch (error) {
       setIsError("Failed to fetch items");
+      setData([])
     }
   };
 

@@ -1,0 +1,31 @@
+
+.billing-div {
+    padding: 6px;
+    height: 250px;
+    overflow-x: scroll;
+    
+}
+
+.billing-div .item-detail {
+  border-bottom: 1px solid #E1E8EE;
+  padding-bottom: 10px ;
+      
+}
+
+
+.hover-effect:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .hover-delete:hover {
+    color: #a80000 !important;
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .minus {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  

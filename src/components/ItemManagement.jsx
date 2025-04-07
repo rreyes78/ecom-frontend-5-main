@@ -18,6 +18,8 @@ const ItemManagement = () => {
 
   const [showModal, setShowModal] = useState(false);
 
+  
+
   const handleAddProductClick = () => {
     setShowModal(true);
   };
@@ -26,7 +28,6 @@ const ItemManagement = () => {
     e.stopPropagation();
     setShowModal(false);
   };
-
 
   const handleSelectAll = () => {
     if (selectedItems.length === restaurantData.length) {
@@ -59,6 +60,7 @@ const ItemManagement = () => {
         </div>
       </div>
       {showModal && (
+        // selectedItem={selectedItem2} 
         <ProductModal showModal={showModal} type="add" onClose={() => setShowModal(false)} />
       )}
         
@@ -82,7 +84,7 @@ const ItemManagement = () => {
           <Upload size={18} /> Import Items
         </button>
         <button className="btn m-1 d-flex justify-content-center align-items-center w-full flex items-center gap-2 bg-white text-black border px-4 py-2 rounded-3xl" style={{ width: "100%" }}>
-          <Edit size={18} /> Edit Item
+          <Edit size={18} /> Update Item
         </button>
       </div>
 
@@ -116,6 +118,8 @@ const ItemManagement = () => {
           restaurantData.map((item, index) => (
 
             <RestaurantCard
+              item={item}
+              item_id={item.id}
               key={index}
               image={item.image}
               name={item.name}
@@ -123,7 +127,7 @@ const ItemManagement = () => {
               addons={item.addons}
               isSelected={selectedItems.includes(index)}
               onSelect={() => handleItemSelect(index)}
-              onShowAddBillingModal={false}
+              onShowInventoryManagementModal={true}
             />
 
           ))

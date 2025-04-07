@@ -10,6 +10,15 @@ export const addToCart=(cart, cartItem,item_discount, setCart)=>{
 }
 
 export const removeToCart=(cart, cartItem, setCart)=>{
+
+    console.log(cartItem)
+    
+    if (cart.length <= 0) return;
+    
+    const newCart = [...cart];
+    newCart.splice(cartItem.index, 1);
+    setCart(newCart);
+
     
 }
 

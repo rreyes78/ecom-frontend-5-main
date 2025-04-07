@@ -60,3 +60,10 @@
     transform: scale(1.05);  /* Grow effect */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow on hover */
   }
+
+
+
+  .disabled {
+    opacity: 0.5; /* Adjust opacity for a faded appearance */
+    pointer-events: none; /* Prevent interactions with the element */
+  }
